@@ -1,0 +1,73 @@
+{
+  "name": "@f-utils/formula-engine",
+  "version": "1.0.0",
+  "description": "轻量级公式计算引擎，支持 Excel 风格的单元格引用、范围语法、依赖排序和精确小数运算",
+  "main": "dist/index.cjs.js",
+  "module": "dist/index.esm.js",
+  "types": "dist/index.d.ts",
+  "exports": {
+    ".": {
+      "import": "./dist/index.esm.js",
+      "require": "./dist/index.cjs.js",
+      "types": "./dist/index.d.ts"
+    }
+  },
+  "files": [
+    "dist/**/*.js",
+    "dist/**/*.d.ts",
+    "package.json",
+    "CHANGELOG.md",
+    "LICENSE",
+    "README.md"
+  ],
+  "sideEffects": false,
+  "keywords": [
+    "formula",
+    "calculator",
+    "excel",
+    "engine",
+    "spreadsheet",
+    "cell-reference",
+    "decimal",
+    "topological-sort"
+  ],
+  "license": "MIT",
+  "author": "Jun FengJian <1500542712@qq.com>",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/f-utils/formula-engine.git"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "engines": {
+    "node": ">=14.0.0"
+  },
+  "peerDependencies": {
+    "decimal.js": "^10.0.0"
+  },
+  "devDependencies": {
+    "decimal.js": "^10.6.0",
+    "rollup": "^4.9.0",
+    "@rollup/plugin-commonjs": "^25.0.0",
+    "@rollup/plugin-node-resolve": "^15.2.0",
+    "@rollup/plugin-terser": "^0.4.0",
+    "typescript": "^5.3.0",
+    "vitest": "^1.2.0",
+    "eslint": "^8.56.0"
+  },
+  "scripts": {
+    "build": "rollup -c rollup.config.mjs",
+    "build:watch": "rollup -c rollup.config.mjs --watch",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "test:coverage": "vitest run --coverage",
+    "lint": "eslint src/ --ext .js",
+    "typecheck": "tsc --noEmit",
+    "prepublishOnly": "npm run lint && npm test && npm run build",
+    "pack:dry": "npm pack --dry-run",
+    "release:patch": "npm version patch && git push && git push --tags && npm publish",
+    "release:minor": "npm version minor && git push && git push --tags && npm publish",
+    "release:major": "npm version major && git push && git push --tags && npm publish"
+  }
+}
