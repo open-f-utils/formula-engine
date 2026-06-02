@@ -115,7 +115,7 @@ function detectCycle(formulas, remainingCells) {
     color[node] = GRAY
     path.push(node)
 
-    const deps = formulas[node]?.dependencies || []
+    const deps = (formulas[node] && formulas[node].dependencies) || []
     for (const dep of deps) {
       if (!Object.prototype.hasOwnProperty.call(color, dep)) continue
       if (color[dep] === GRAY) {
