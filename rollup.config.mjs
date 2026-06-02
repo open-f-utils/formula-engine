@@ -31,6 +31,6 @@ export default [
       sourcemap: true
     },
     external,
-    plugins: [...plugins, terser()]
+    plugins
   }
 ]
