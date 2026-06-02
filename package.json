@@ -1,6 +1,6 @@
 {
   "name": "@f-utils/formula-engine",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "轻量级公式计算引擎，支持 Excel 风格的单元格引用、范围语法、依赖排序和精确小数运算",
   "main": "dist/index.cjs.js",
   "module": "dist/index.esm.js",
